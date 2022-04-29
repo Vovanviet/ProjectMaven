@@ -3,7 +3,6 @@ package services;
 import entity.Customer;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class CustomerServicesImpl implements CustomerServices{
@@ -11,7 +10,11 @@ public class CustomerServicesImpl implements CustomerServices{
     @Override
     public List<Customer> getAllCustomer() {
        try {
-           customers.forEach(System.out::println);
+           if (customers.isEmpty()){
+               System.out.println("Not found");
+           }else {
+               customers.forEach(System.out::println);
+           }
        } catch (Exception e) {
            e.printStackTrace();
        }
@@ -19,7 +22,7 @@ public class CustomerServicesImpl implements CustomerServices{
     }
 
     @Override
-    public void addStudent(Customer customer) {
+    public void addCustomer (Customer customer) {
         try {
             customers.add(customer);
             System.out.println(customers);
@@ -30,13 +33,19 @@ public class CustomerServicesImpl implements CustomerServices{
     }
 
     @Override
-    public void searchStudent(Customer customer) {
+    public void searchCustomer(Customer customer) {
         try {
-            customers.forEach(t->{
-                if ((customer.getName()).equals(t.getName())){
-                    System.out.println(t);
-                }
-            });
+            if(customers.isEmpty()){
+                System.out.println("EMPTY!!!");
+            }else {
+                customers.forEach(t -> {
+                    if ((customer.getName()).equals(t.getName())) {
+
+                        System.out.println(t);
+
+                    } else System.out.println("not found");
+                });
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -11,9 +11,9 @@ public class CustomerController
         customerServices.getAllCustomer();
     }
     public void addCustomer(Customer customer){
-        customerServices.addStudent(customer);
+        customerServices.addCustomer(customer);
     }
     public void searCustomer(Customer customer){
-        customerServices.searchStudent(customer);
+        customerServices.searchCustomer(customer);
     }
 }

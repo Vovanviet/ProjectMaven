@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CustomerServices {
     List<Customer> getAllCustomer();
-    void addStudent(Customer customer);
-    void searchStudent(Customer customer);
+    void addCustomer(Customer customer);
+    void searchCustomer(Customer customer);
 
 }
