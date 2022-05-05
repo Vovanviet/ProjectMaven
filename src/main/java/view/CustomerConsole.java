@@ -1,4 +1,4 @@
-package services.view;
+package view;
 
 import controller.CustomerController;
 import entity.Customer;
@@ -61,15 +61,15 @@ public class CustomerConsole {
     }
 
     private void addCustomer(){
-        System.out.println("Enter id:");
-        int id=sc.nextInt();
         System.out.println("Enter name:");
         String name= sc.next();
         System.out.println("Enter email:");
         String email= sc.next();
         System.out.println("Enter phone:");
         String phone= sc.next();
-        Customer customer=new Customer(id,name,email,phone);
+        Customer customer=new Customer(name,email,phone);
+//        customerController.addCustomer(customer);
+
         customerController.addCustomer(customer);
     }
     private void searchCustomer(){
@@ -80,5 +80,6 @@ public class CustomerConsole {
     }
     private void getAll(){
         customerController.getAllCustomer();
+
     }
 }

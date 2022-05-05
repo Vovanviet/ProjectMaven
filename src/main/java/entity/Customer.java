@@ -1,20 +1,32 @@
 package entity;
 
-public class Customer {
-    private int id;
-    private String name;
-    private String email;
-    private String phone;
+import jakarta.persistence.*;
 
-    public Customer(int id, String name, String email, String phone) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
+@Table(name = "customers")
+@Entity
+public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+   private int id;
+    @Column(name = "cusName",nullable = false)
+   private String cusName;
+    @Column(name = "cusEmail",nullable = false)
+   private String cusEmail;
+    @Column(name = "cusPhone",nullable = false)
+   private String cusPhone;
+
+    public Customer( String cusName, String cusEmail, String cusPhone) {
+        this.cusName = cusName;
+        this.cusEmail = cusEmail;
+        this.cusPhone = cusPhone;
+    }
+    public Customer() {
     }
 
-    public Customer(String name) {
-        this.name = name;
+    public Customer(String cusName) {
+        this.cusName = cusName;
     }
 
     public int getId() {
@@ -25,37 +37,37 @@ public class Customer {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCusName() {
+        return cusName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCusName(String cusName) {
+        this.cusName = cusName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCusEmail() {
+        return cusEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCusEmail(String cusEmail) {
+        this.cusEmail = cusEmail;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getCusPhone() {
+        return cusPhone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setCusPhone(String cusPhone) {
+        this.cusPhone = cusPhone;
     }
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
+        return "{" +
+                "id:" + id +
+                ", cusName:'" + cusName + '\'' +
+                ", cusEmail:'" + cusEmail + '\'' +
+                ", cusPhone:'" + cusPhone + '\'' +
                 '}';
     }
 }

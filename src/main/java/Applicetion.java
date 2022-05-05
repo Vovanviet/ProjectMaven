@@ -1,4 +1,4 @@
-import services.view.CustomerConsole;
+import view.CustomerConsole;
 
 public class Applicetion {
     public static void main(String[] args) {
